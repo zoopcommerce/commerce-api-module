@@ -2,6 +2,11 @@
 
 return [
     'zoop' => [
+        'api' => [
+            'name' => 'rest',
+            'route' => '[/:endpoint][/:id]',
+            'endpoints' => []
+        ]
     ],
     'router' => [
         'prototypes' => [
@@ -23,28 +28,18 @@ return [
                     ]
                 ]
             ],
-            'rest' => [
-                //this route will look to load a controller
-                //service called `shard.rest.<endpoint>`
-                'options' => [
-                    'route' => '[/:endpoint][/:id]',
-                    'constraints' => [
-                        'endpoint' => '[a-zA-Z][a-zA-Z0-9_-]+',
-                        'id' => '[a-zA-Z][a-zA-Z0-9/_-]+',
-                    ],
-                ],
-            ],
         ]
     ],
     'controllers' => [
         'invokables' => [
-           'zoop.api.controller.ping' => 'Zoop\Api\Controller\PingController'
+            'zoop.api.controller.ping' => 'Zoop\Api\Controller\PingController'
         ],
     ],
     'service_manager' => [
         'invokables' => [
         ],
         'factories' => [
+            'Router' => 'Zoop\Api\Service\RouterFactory',
         ],
     ],
 ];
