@@ -32,11 +32,12 @@ return [
     ],
     'controllers' => [
         'invokables' => [
-            'zoop.api.controller.ping' => 'Zoop\Api\Controller\PingController'
+            'zoop.api.controller.ping' => 'Zoop\Api\Controller\PingController',
         ],
     ],
     'service_manager' => [
         'invokables' => [
+            'zoop.api.listener.options' => 'Zoop\Api\Controller\Listener\OptionsListener',
         ],
         'factories' => [
             'Router' => 'Zoop\Api\Service\RouterFactory',
