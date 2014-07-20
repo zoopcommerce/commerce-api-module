@@ -6,7 +6,8 @@ return [
         'DoctrineModule',
         'DoctrineMongoODMModule',
         'Zoop\ShardModule',
-        'Zoop\Api'
+        'Zoop\Api',
+        'Zoop\Common'
     ],
     'module_listener_options' => [
         'config_glob_paths' => [

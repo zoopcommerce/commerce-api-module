@@ -25,10 +25,10 @@ return [
                     'defaults' => [
                         'controller' => 'zoop.api.controller.ping',
                         'action' => 'index'
-                    ]
-                ]
+                    ],
+                ],
             ],
-        ]
+        ],
     ],
     'controllers' => [
         'invokables' => [

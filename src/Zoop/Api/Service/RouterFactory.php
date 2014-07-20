@@ -32,7 +32,8 @@ class RouterFactory extends DefaultRouterFactory implements FactoryInterface
         ];
         $route = new Segment($apiConfig['route'], $constraints);
 
-        $router->addRoute($apiConfig['name'], $route, 100);
+        //set rest route to the lowest priority so it can be overridden if needed
+        $router->addRoute($apiConfig['name'], $route, -1);
     }
     
     protected function getEndpointRegex($endpoints)

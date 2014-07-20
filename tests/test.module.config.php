@@ -37,6 +37,11 @@ return [
         ],
     ],
     'zoop' => [
+        'api' => [
+            'endpoints' => [
+                'test',
+            ]
+        ],
         'aws' => [
             'key' => 'AKIAJE2QFIBMYF5V5MUQ',
             'secret' => '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',
@@ -81,6 +86,72 @@ return [
                 'password' => '',
                 'port' => 27017,
             ]
+        ],
+        'shard' => [
+            'manifest' => [
+                'commerce' => [
+                    'models' => [
+                        'Zoop\Api\Test\Assets' => __DIR__ . '/Zoop/Api/Test/Assets',
+                    ],
+                ],
+            ],
+            'rest' => [
+                'manifest' => 'commerce',
+                'cache_control' => [
+                    'no_cache' => true
+                ],
+                'rest' => [
+                    'test' => [
+                        'property' => 'id',
+                        'class' => 'Zoop\Api\Test\Assets\TestModel',
+                        'listeners' => [
+                            'create' => [
+                                'zoop.shardmodule.listener.unserialize',
+                                'zoop.shardmodule.listener.create',
+                                'zoop.shardmodule.listener.flush',
+                                'zoop.shardmodule.listener.location',
+                                'zoop.shardmodule.listener.prepareviewmodel'
+                            ],
+                            'delete' => [
+                                'zoop.shardmodule.listener.delete',
+                                'zoop.shardmodule.listener.flush',
+                                'zoop.shardmodule.listener.prepareviewmodel'
+                            ],
+                            'deleteList' => [],
+                            'get' => [
+                                'zoop.shardmodule.listener.get',
+                                'zoop.shardmodule.listener.serialize',
+                                'zoop.shardmodule.listener.prepareviewmodel'
+                            ],
+                            'getList' => [
+                                'zoop.shardmodule.listener.getlist',
+                                'zoop.shardmodule.listener.serialize',
+                                'zoop.shardmodule.listener.prepareviewmodel'
+                            ],
+                            'patch' => [
+                                'zoop.shardmodule.listener.unserialize',
+                                'zoop.shardmodule.listener.idchange',
+                                'zoop.shardmodule.listener.patch',
+                                'zoop.shardmodule.listener.flush',
+                                'zoop.shardmodule.listener.prepareviewmodel'
+                            ],
+                            'patchList' => [],
+                            'update' => [
+                                'zoop.shardmodule.listener.unserialize',
+                                'zoop.shardmodule.listener.idchange',
+                                'zoop.shardmodule.listener.update',
+                                'zoop.shardmodule.listener.flush',
+                                'zoop.shardmodule.listener.prepareviewmodel'
+                            ],
+                            'replaceList' => [],
+                            'options' => [
+                                'zoop.api.listener.options',
+                                'zoop.shardmodule.listener.prepareviewmodel'
+                            ],
+                        ],
+                    ],
+                ],
+            ],
         ],
     ]
 ];
