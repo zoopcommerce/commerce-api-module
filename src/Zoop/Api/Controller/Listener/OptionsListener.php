@@ -2,10 +2,8 @@
 
 namespace Zoop\Api\Controller\Listener;
 
-use Zend\Http\Request;
-use Zend\Http\Header\Allow;
-use Zend\Http\Header\GenericHeader;
 use Zend\Mvc\MvcEvent;
+use Zoop\Api\Controller\Listener\CorsHeadersTrait;
 use Zoop\ShardModule\Controller\Result;
 
 /**
@@ -15,6 +13,8 @@ use Zoop\ShardModule\Controller\Result;
  */
 class OptionsListener
 {
+    use CorsHeadersTrait;
+    
     public function options(MvcEvent $event)
     {
         $result = new Result;
@@ -22,40 +22,8 @@ class OptionsListener
 
         $result->setStatusCode(201);
 
-        $this->setHeaders($event);
+        $this->setCorsHeaders($event);
 
         return $result;
-    }
-    
-    public function setHeaders(MvcEvent $event)
-    {
-        $result = $event->getResult();
-
-        $methods = [
-            Request::METHOD_OPTIONS,
-            Request::METHOD_GET,
-            Request::METHOD_POST,
-            Request::METHOD_PUT,
-            Request::METHOD_PATCH,
-        ];
-                
-        $allow = new Allow;
-        $allow->allowMethods($methods);
-
-        $result->addHeader($allow);
-        $result->addHeader(
-            GenericHeader::fromString(
-                'Access-Control-Allow-Origin: *'
-            )
-        );
-        $result->addHeader(GenericHeader::fromString(
-            'Access-Control-Allow-Methods: ' .
-            implode(', ', $methods)
-        ));
-        $result->addHeader(GenericHeader::fromString('Access-Control-Allow-Headers: content-type'));
-        $result->addHeader(GenericHeader::fromString('Access-Control-Max-Age: 1200'));
-        $result->addHeader(GenericHeader::fromString('Access-Control-Allow-Credentials: true'));
-
-        return;
     }
 }
