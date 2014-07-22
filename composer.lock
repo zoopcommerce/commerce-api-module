@@ -4,7 +4,7 @@
         "Read more about it at http://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "e5b3c5d4c27f32f8f7aefd8a95205ea2",
+    "hash": "fcb43e676dc43d87249b81a5eff57b0a",
     "packages": [
         {
             "name": "aws/aws-sdk-php",
@@ -1783,12 +1783,12 @@
             "source": {
                 "type": "git",
                 "url": "git@github.com:zoopcommerce/commerce-common-module.git",
-                "reference": "7ead166b45b0860c641881880bb53545290cb187"
+                "reference": "b158229fa22b81138eff2da92a3f10f1834aab26"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/zoopcommerce/commerce-common-module/zipball/7ead166b45b0860c641881880bb53545290cb187",
-                "reference": "7ead166b45b0860c641881880bb53545290cb187",
+                "url": "https://api.github.com/repos/zoopcommerce/commerce-common-module/zipball/b158229fa22b81138eff2da92a3f10f1834aab26",
+                "reference": "b158229fa22b81138eff2da92a3f10f1834aab26",
                 "shasum": ""
             },
             "require": {
@@ -1808,7 +1808,7 @@
                 "sendgrid/sendgrid": "~2.1",
                 "willdurand/geocoder": "2.4.*",
                 "zendframework/zendframework": "2.3.1",
-                "zoopcommerce/shard-module": "~3.1"
+                "zoopcommerce/shard-module": "~4.0"
             },
             "require-dev": {
                 "phpmd/phpmd": "1.5.*",
@@ -1847,7 +1847,7 @@
                 "source": "https://github.com/zoopcommerce/commerce-common-module/tree/master",
                 "issues": "https://github.com/zoopcommerce/commerce-common-module/issues"
             },
-            "time": "2014-07-14 11:38:04"
+            "time": "2014-07-22 08:54:06"
         },
         {
             "name": "zoopcommerce/common",
@@ -2111,16 +2111,16 @@
         },
         {
             "name": "zoopcommerce/shard",
-            "version": "4.1.1",
+            "version": "5.0.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/zoopcommerce/shard.git",
-                "reference": "ff238fa34053d1673243852ce35da23e9faf9a98"
+                "reference": "abb78fe0b1250b7d5a2a34ad18fdb64be6fec291"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/zoopcommerce/shard/zipball/ff238fa34053d1673243852ce35da23e9faf9a98",
-                "reference": "ff238fa34053d1673243852ce35da23e9faf9a98",
+                "url": "https://api.github.com/repos/zoopcommerce/shard/zipball/abb78fe0b1250b7d5a2a34ad18fdb64be6fec291",
+                "reference": "abb78fe0b1250b7d5a2a34ad18fdb64be6fec291",
                 "shasum": ""
             },
             "require": {
@@ -2154,14 +2154,11 @@
             "authors": [
                 {
                     "name": "Tim Roediger",
-                    "email": "superdweebie@gmail.com",
-                    "homepage": "http://github.com/superdweebie"
+                    "email": "superdweebie@gmail.com"
                 },
                 {
                     "name": "Josh Stuart",
-                    "email": "josh.stuart@zoopcommerce.com",
-                    "homepage": "http://github.com/crimsonronin",
-                    "role": "Developer"
+                    "email": "josh.stuart@zoopcommerce.com"
                 }
             ],
             "description": "Add new behaviours to Doctrine Mongo ODM Documents",
@@ -2172,20 +2169,20 @@
                 "odm",
                 "zoop"
             ],
-            "time": "2014-06-15 04:07:38"
+            "time": "2014-07-21 12:34:18"
         },
         {
             "name": "zoopcommerce/shard-module",
-            "version": "3.1.0",
+            "version": "4.0.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/zoopcommerce/shard-module.git",
-                "reference": "b5771030a37ff5caf580d79b0cbda3b6487fc994"
+                "reference": "90a08a0b3549bc75a030162308ada41679763aea"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/zoopcommerce/shard-module/zipball/b5771030a37ff5caf580d79b0cbda3b6487fc994",
-                "reference": "b5771030a37ff5caf580d79b0cbda3b6487fc994",
+                "url": "https://api.github.com/repos/zoopcommerce/shard-module/zipball/90a08a0b3549bc75a030162308ada41679763aea",
+                "reference": "90a08a0b3549bc75a030162308ada41679763aea",
                 "shasum": ""
             },
             "require": {
@@ -2197,7 +2194,7 @@
                 "zendframework/zendframework": "~2.3",
                 "zoopcommerce/juggernaut": "~1.1",
                 "zoopcommerce/maggott-module": "~1.1",
-                "zoopcommerce/shard": "~4.1"
+                "zoopcommerce/shard": "~5.0"
             },
             "require-dev": {
                 "pdepend/pdepend": "1.1.1",
@@ -2216,14 +2213,11 @@
             "authors": [
                 {
                     "name": "Tim Roediger",
-                    "email": "superdweebie@gmail.com",
-                    "homepage": "http://superdweebie.com"
+                    "email": "superdweebie@gmail.com"
                 },
                 {
                     "name": "Josh Stuart",
-                    "email": "josh.stuart@zoopcommerce.com",
-                    "homepage": "http://github.com/crimsonronin",
-                    "role": "Developer"
+                    "email": "josh.stuart@zoopcommerce.com"
                 }
             ],
             "description": "Zend Framework 2 Module for Shard",
@@ -2235,7 +2229,7 @@
                 "zf2",
                 "zoop"
             ],
-            "time": "2014-06-09 06:36:28"
+            "time": "2014-07-21 12:49:22"
         }
     ],
     "packages-dev": [
@@ -3278,6 +3272,7 @@
         "melihucar/ftpclient": 20,
         "zoopcommerce/commerce-common-module": 20
     },
+    "prefer-stable": false,
     "platform": {
         "php": ">=5.4"
     },

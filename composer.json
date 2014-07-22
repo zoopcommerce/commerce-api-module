@@ -48,7 +48,7 @@
         "melihucar/ftpclient"                       : "dev-master#faab472b1f3118d4926b3cbfc7d21c9cba255c0f as dev-master",
         "sendgrid/sendgrid"                         : "~2.1",
         "zoopcommerce/commerce-common-module"       : "dev-master",
-        "zoopcommerce/shard-module"                 : "~3.1"
+        "zoopcommerce/shard-module"                 : "~4.0"
     },
     "require-dev": {
         "phpunit/phpunit"           : ">=3.7",
