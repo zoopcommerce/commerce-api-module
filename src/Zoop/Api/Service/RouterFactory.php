@@ -2,6 +2,7 @@
 
 namespace Zoop\Api\Service;
 
+use Zend\Console\Console;
 use Zend\ServiceManager\FactoryInterface;
 use Zend\ServiceManager\ServiceLocatorInterface;
 use Zend\Mvc\Service\RouterFactory as DefaultRouterFactory;
@@ -10,10 +11,16 @@ use Zend\Mvc\Router\Http\Segment;
 
 class RouterFactory extends DefaultRouterFactory implements FactoryInterface
 {
-    public function createService(ServiceLocatorInterface $serviceLocator)
+    public function createService(ServiceLocatorInterface $serviceLocator, $cName = null, $rName = null)
     {
-        $router = parent::createService($serviceLocator);
-
+        $router = parent::createService($serviceLocator, $cName, $rName);
+        
+        if ($rName === 'ConsoleRouter'
+            || ($cName === 'router' && Console::isConsole())
+        ) {
+            return $router;
+        }
+        
         $routePluginManager = $router->getRoutePluginManager();
         $routePluginManager->setServiceLocator($serviceLocator);
 

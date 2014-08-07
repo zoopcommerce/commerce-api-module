@@ -8,6 +8,9 @@ return [
             'endpoints' => []
         ],
         'shard' => [
+            'rest' => [
+                'manifest' => 'commerce',
+            ],
             'manifest' => [
                 'commerce' => [
                     'extension_configs' => [
