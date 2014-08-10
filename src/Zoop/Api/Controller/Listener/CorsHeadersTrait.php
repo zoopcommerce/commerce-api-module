@@ -36,6 +36,16 @@ trait CorsHeadersTrait
                 Request::METHOD_PATCH,
                 Request::METHOD_DELETE,
             ];
+            
+            $allowedHeaders = [
+                'authorization',
+                'content-type',
+                'cache-control',
+                'range',
+                'x-file-name',
+                'x-file-size',
+                'x-requested-with',
+            ];
 
             $allow = new Allow;
             $allow->allowMethods($methods);
@@ -51,7 +61,7 @@ trait CorsHeadersTrait
                 'Access-Control-Allow-Methods: ' .
                 implode(', ', $methods)
             ));
-            $result->addHeader(GenericHeader::fromString('Access-Control-Allow-Headers: content-type, x-requested-with, x-file-name, x-file-size, cache-control'));
+            $result->addHeader(GenericHeader::fromString('Access-Control-Allow-Headers: ' . implode(', ', $allowedHeaders)));
             $result->addHeader(GenericHeader::fromString('Access-Control-Max-Age: 1200'));
             $result->addHeader(GenericHeader::fromString('Access-Control-Allow-Credentials: true'));
         }
