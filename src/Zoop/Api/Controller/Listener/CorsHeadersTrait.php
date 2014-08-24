@@ -64,6 +64,7 @@ trait CorsHeadersTrait
             $result->addHeader(GenericHeader::fromString('Access-Control-Allow-Headers: ' . implode(', ', $allowedHeaders)));
             $result->addHeader(GenericHeader::fromString('Access-Control-Max-Age: 1200'));
             $result->addHeader(GenericHeader::fromString('Access-Control-Allow-Credentials: true'));
+            $result->addHeader(GenericHeader::fromString('Access-Control-Expose-Headers: Location'));
         }
         return;
     }
