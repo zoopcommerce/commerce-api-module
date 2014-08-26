@@ -81,7 +81,7 @@ class EndpointTest extends AbstractTest
 
         $content = $response->getContent();
         $this->assertEmpty($content);
-    } 
+    }
     
     protected function createTestData()
     {
