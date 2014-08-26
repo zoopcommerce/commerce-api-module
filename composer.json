@@ -53,7 +53,7 @@
     "require-dev": {
         "phpunit/phpunit"           : ">=3.7",
         "squizlabs/php_codesniffer" : "1.4.*",
-        "phpmd/phpmd"               : "1.4.*"
+        "phpmd/phpmd"               : "1.5.*"
     },
     "autoload": {
         "psr-0": {
