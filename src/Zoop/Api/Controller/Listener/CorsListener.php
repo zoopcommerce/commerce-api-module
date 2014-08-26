@@ -11,12 +11,15 @@ use Zoop\Api\Controller\Listener\CorsHeadersTrait;
 class CorsListener
 {
     use CorsHeadersTrait;
-    
+
+    /**
+     * @SuppressWarnings(PHPMD.UnusedFormalParameter)
+     */
     public function __call($name, $args)
     {
         /* @var $event MvcEvent */
         $event = $args[0];
-        
+
         //apply cors headers
         $this->setCorsHeaders($event);
     }
