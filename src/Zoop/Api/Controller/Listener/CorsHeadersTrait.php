@@ -8,7 +8,6 @@ use Zend\Http\Header\GenericHeader;
 use Zend\Mvc\MvcEvent;
 use Zend\Http\Header\Origin;
 use Zoop\ShardModule\Controller\Result;
-//use Zend\View\Model\ViewModel;
 
 /**
  * @author  Tim Roediger <superdweebie@gmail.com>
@@ -61,7 +60,12 @@ trait CorsHeadersTrait
                 'Access-Control-Allow-Methods: ' .
                 implode(', ', $methods)
             ));
-            $result->addHeader(GenericHeader::fromString('Access-Control-Allow-Headers: ' . implode(', ', $allowedHeaders)));
+            $result->addHeader(
+                GenericHeader::fromString(
+                    'Access-Control-Allow-Headers: ' .
+                    implode(', ', $allowedHeaders)
+                )
+            );
             $result->addHeader(GenericHeader::fromString('Access-Control-Max-Age: 1200'));
             $result->addHeader(GenericHeader::fromString('Access-Control-Allow-Credentials: true'));
             $result->addHeader(GenericHeader::fromString('Access-Control-Expose-Headers: Location'));

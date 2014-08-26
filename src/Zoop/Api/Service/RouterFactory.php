@@ -47,8 +47,8 @@ class RouterFactory extends DefaultRouterFactory implements FactoryInterface
     {
         //sort endpoints by slash
         $regexEndpoints = [];
-        foreach($endpoints as $endpoint) {
-            if(strpos($endpoint, '/') !== false) {
+        foreach ($endpoints as $endpoint) {
+            if (strpos($endpoint, '/') !== false) {
                 $regexEndpoints[] = $endpoint;
             }
         }
@@ -56,8 +56,8 @@ class RouterFactory extends DefaultRouterFactory implements FactoryInterface
         //reverse sort
         rsort($regexEndpoints);
         
-        foreach($endpoints as $endpoint) {
-            if(!in_array($endpoint, $regexEndpoints)) {
+        foreach ($endpoints as $endpoint) {
+            if (!in_array($endpoint, $regexEndpoints)) {
                 $regexEndpoints[] = $endpoint;
             }
         }
