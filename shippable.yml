@@ -1,0 +1,28 @@
+language: php
+
+php: 
+  - 5.4
+  - 5.5
+
+services:
+  - mongodb
+
+env:
+    secure: hYiMkeyb2icBg/W+KgkyciPZbz6GqCzvjBrGMqSxK46M9YxCNlc+W2vx6stYIhX8TJqTpQFcxw1GphQjgpDpGp38cq2wBljruLUW4cL5z+NN5tmvkJcVBwkqi0gQMSVoGoFYTNdL32A5rHLFxRJ0GxbZcjVApL4nIjBnIrzuEikyKGyxGtWHTM8yNe1oYAHs/1Mc5qPJ1ZfQWRBP5oMoz5mGa2ea3kybvlW5uSJQRgMWKy0z3IOgak5dWu/miAmGAiXZjbyb4lCJoAk/ZwbQkeVZ4H0TMXk06h9g6tYPmCRijtdRb7PatFZG9/Zv+rSUgRrJn9vPnD1pwgW+MljnbQ==
+
+before_script: 
+  - mkdir -p shippable/testresults
+  - mkdir -p shippable/codecoverage
+  - echo "extension=mongo.so" >> ~/.phpenv/versions/$(phpenv version-name)/etc/php.ini
+  - echo "xdebug.max_nesting_level = 1000" >> ~/.phpenv/versions/$(phpenv version-name)/etc/php.ini
+  - composer config -g github-oauth.github.com $GITHUB_TOKEN
+  - composer self-update
+  - composer install
+
+script:
+  - phpunit --log-junit shippable/testresults/junit.xml --coverage-clover shippable/codecoverage/clover.xml tests/
+  - vendor/bin/phpcs --standard=PSR2 src/ tests/Zoop/
+  - vendor/bin/phpmd src/ text ruleset.xml
+
+notifications:
+   email: false
