@@ -1779,12 +1779,12 @@
             "source": {
                 "type": "git",
                 "url": "git@github.com:zoopcommerce/commerce-common-module.git",
-                "reference": "23e6b84c835dc39249777411b29b965638a4fa39"
+                "reference": "0e6b02800541f0109b4a0ca0e7cf0acba5d14bbb"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/zoopcommerce/commerce-common-module/zipball/23e6b84c835dc39249777411b29b965638a4fa39",
-                "reference": "23e6b84c835dc39249777411b29b965638a4fa39",
+                "url": "https://api.github.com/repos/zoopcommerce/commerce-common-module/zipball/0e6b02800541f0109b4a0ca0e7cf0acba5d14bbb",
+                "reference": "0e6b02800541f0109b4a0ca0e7cf0acba5d14bbb",
                 "shasum": ""
             },
             "require": {
@@ -1807,10 +1807,9 @@
                 "zoopcommerce/shard-module": "~4.0"
             },
             "require-dev": {
-                "phpmd/phpmd": "1.5.*",
+                "phpmd/phpmd": "2.*",
                 "phpunit/phpunit": ">=3.7",
-                "squizlabs/php_codesniffer": "1.4.*",
-                "zoopcommerce/slipstream": "~0.1"
+                "squizlabs/php_codesniffer": "1.4.*"
             },
             "type": "library",
             "autoload": {
@@ -1843,7 +1842,7 @@
                 "source": "https://github.com/zoopcommerce/commerce-common-module/tree/master",
                 "issues": "https://github.com/zoopcommerce/commerce-common-module/issues"
             },
-            "time": "2014-07-26 01:11:38"
+            "time": "2014-08-30 04:53:54"
         },
         {
             "name": "zoopcommerce/common",
@@ -2673,16 +2672,16 @@
         },
         {
             "name": "phpunit/phpunit",
-            "version": "4.2.2",
+            "version": "4.2.3",
             "source": {
                 "type": "git",
                 "url": "https://github.com/sebastianbergmann/phpunit.git",
-                "reference": "a33fa68ece9f8c68589bfc2da8d2794e27b820bc"
+                "reference": "3985cd437c1da2934421c99e54ebdf24f0362a7a"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/sebastianbergmann/phpunit/zipball/a33fa68ece9f8c68589bfc2da8d2794e27b820bc",
-                "reference": "a33fa68ece9f8c68589bfc2da8d2794e27b820bc",
+                "url": "https://api.github.com/repos/sebastianbergmann/phpunit/zipball/3985cd437c1da2934421c99e54ebdf24f0362a7a",
+                "reference": "3985cd437c1da2934421c99e54ebdf24f0362a7a",
                 "shasum": ""
             },
             "require": {
@@ -2743,7 +2742,7 @@
                 "testing",
                 "xunit"
             ],
-            "time": "2014-08-18 05:12:30"
+            "time": "2014-08-28 13:38:26"
         },
         {
             "name": "phpunit/phpunit-mock-objects",

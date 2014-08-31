@@ -2,6 +2,7 @@
 
 namespace Zoop\Api\Test\Assets;
 
+use Zoop\Shard\Zone\DataModel\ZoneTrait;
 //Annotation imports
 use Doctrine\ODM\MongoDB\Mapping\Annotations as ODM;
 use Zoop\Shard\Annotation\Annotations as Shard;
@@ -14,6 +15,8 @@ use Zoop\Shard\Annotation\Annotations as Shard;
  */
 class TestModel
 {
+    use ZoneTrait;
+    
     /**
      * @ODM\Id
      */

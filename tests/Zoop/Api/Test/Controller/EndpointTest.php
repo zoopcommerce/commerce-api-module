@@ -90,8 +90,8 @@ class EndpointTest extends AbstractTest
             $test->setName('Name' . rand(10, 1000));
             
             self::getDocumentManager()->persist($test);
-            self::getDocumentManager()->flush($test);
-            self::getDocumentManager()->clear($test);
         }
+        self::getDocumentManager()->flush();
+        self::getDocumentManager()->clear();
     }
 }

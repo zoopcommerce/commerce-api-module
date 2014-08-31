@@ -4,8 +4,13 @@ return [
     'zoop' => [
         'api' => [
             'name' => 'rest',
-            'route' => '[/:endpoint][/:id]',
-            'endpoints' => []
+            'route' => '/:endpoint[/:id]',
+            'constraints' => [
+                'endpoint' => '[a-zA-Z0-9_\-]+',
+                'id' => '[a-zA-Z0-9_\-]+',
+            ],
+            'endpoints' => [],
+            'filters' => []
         ],
         'shard' => [
             'rest' => [

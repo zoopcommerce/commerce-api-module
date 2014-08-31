@@ -40,6 +40,14 @@ return [
         'api' => [
             'endpoints' => [
                 'test',
+            ],
+            'filters' => [
+                'name' => [
+                    'route' => '/name/:name',
+                    'constraints' => [
+                        'name' => '[a-zA-Z0-9/_-]+'
+                    ]
+                ]
             ]
         ],
         'aws' => [
