@@ -97,9 +97,6 @@ class RouterFactory extends DefaultRouterFactory implements FactoryInterface
             'options' => [
                 'route' => ltrim($route, '/'),
                 'constraints' => $constraints,
-                'defaults' => [
-                    'controller' => 'shard.rest.test'
-                ],
             ],
             'may_terminate' => true,
         ];
