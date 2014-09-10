@@ -13,10 +13,6 @@ services:
 
 env:
     secure: NSB6/hTI44DvqaLzvOJF9873Isg5q7Tkyzls9FkY/XcNToaVzGIqjwtrJWt7OkCl51C/u2s60v7BDFRUiSclHZuYQrz9GxmF4bFI8U6ulkj6eC0+iaWc0rbdPkrCAOuXggPRHhcHcf6NpK3Z1QnEksumaVC2Hp+cWJrxFipzb+NkhStiSs0g6LkbA9IOhs9SuL1Ol5LlNy6DIPzQXxohSz4+X4Gp1gagtsv8a6TsJvp9vlusOo86Az2b6DjXHKrVGUkiYh9UhlTexKZftg7EF8DaMv2rrD/Q6NsEY8kciWnuAOtKQm4OA4Ngm2jf7F/O2VSCeP4mH5KcPBPZIvbSXg==
-
-before_install:
-  - git config --global user.email "ci@zoopcommerce.com"
-  - git config --global user.name "zoop-ci"
 	
 before_script: 
   - mkdir -p shippable/testresults
