@@ -17,6 +17,8 @@ env:
 before_script: 
   - mkdir -p shippable/testresults
   - mkdir -p shippable/codecoverage
+  - git config --global user.email "ci@zoopcommerce.com"
+  - git config --global user.name "zoop-ci"
   - echo "extension=mongo.so" >> ~/.phpenv/versions/$(phpenv version-name)/etc/php.ini
   - echo "xdebug.max_nesting_level = 1000" >> ~/.phpenv/versions/$(phpenv version-name)/etc/php.ini
   - composer config -g github-oauth.github.com $GITHUB_TOKEN
