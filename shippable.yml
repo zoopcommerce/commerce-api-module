@@ -14,8 +14,8 @@ services:
   - mongodb
 
 env:
-    secure: hYiMkeyb2icBg/W+KgkyciPZbz6GqCzvjBrGMqSxK46M9YxCNlc+W2vx6stYIhX8TJqTpQFcxw1GphQjgpDpGp38cq2wBljruLUW4cL5z+NN5tmvkJcVBwkqi0gQMSVoGoFYTNdL32A5rHLFxRJ0GxbZcjVApL4nIjBnIrzuEikyKGyxGtWHTM8yNe1oYAHs/1Mc5qPJ1ZfQWRBP5oMoz5mGa2ea3kybvlW5uSJQRgMWKy0z3IOgak5dWu/miAmGAiXZjbyb4lCJoAk/ZwbQkeVZ4H0TMXk06h9g6tYPmCRijtdRb7PatFZG9/Zv+rSUgRrJn9vPnD1pwgW+MljnbQ==
-
+  - secure: j6HrKTI0NnVQLwjG/Nhtd7+hVhHXFqfdYLleez8CIGPKHJ2RQGAoAqv1ftDCbGmLjcPpz9+RH32wE5xr8kgB9zws8wK2LP6UAjlA1O58gUJU9KDX4aPLJN2jtsasqzIoG5yITNbd46+uo6Ewj9BNt+yg69ZIe+vborXmnLZSnvC58LDE2TIT7XCns+onqcA0iQU5WO5Un7PV+hPVtWfAzyvcYkdhOxEMkFS5B7T+BeJwkDzZF4KU+cJm2nKGgaQYqJ+lcZHxB0krYmappzVMNrn6p+dBRcxx8CK5JrZCsvwfyPjoO+hlpgcMouh7PmZVvKYSVUtKaWjrbmi53RPWhQ==
+	
 before_script: 
   - mkdir -p shippable/testresults
   - mkdir -p shippable/codecoverage
