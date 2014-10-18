@@ -17,7 +17,7 @@ trait CorsHeadersTrait
 {
     /**
      * Sets the cross origin domain headers
-     * 
+     *
      * @param MvcEvent $event
      * @return
      */
@@ -25,7 +25,7 @@ trait CorsHeadersTrait
     {
         $result = $event->getResult();
         $origin = $event->getRequest()->getHeaders()->get('Origin');
-        
+
         if ($result instanceof Result && $origin instanceof Origin) {
             $methods = [
                 Request::METHOD_OPTIONS,
@@ -35,7 +35,7 @@ trait CorsHeadersTrait
                 Request::METHOD_PATCH,
                 Request::METHOD_DELETE,
             ];
-            
+
             $allowedHeaders = [
                 'authorization',
                 'content-type',

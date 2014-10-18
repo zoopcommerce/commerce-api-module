@@ -16,17 +16,17 @@ use Zoop\Shard\Annotation\Annotations as Shard;
 class TestModel
 {
     use ZoneTrait;
-    
+
     /**
      * @ODM\Id
      */
     protected $id;
-    
+
     /**
      * @ODM\String
      */
     protected $name;
-    
+
     public function getId()
     {
         return $this->id;

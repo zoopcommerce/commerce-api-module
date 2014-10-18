@@ -1,21 +1,20 @@
 <?php
 
-namespace Zoop\Api\Test\Services;
+namespace Zoop\Api\Test\Controller;
 
 use Zend\Http\Header\Accept;
 use Zend\Http\Header\ContentType;
 use Zend\Http\Header\Origin;
-use Zend\Http\Header\Host;
 use Zend\Mvc\MvcEvent;
 use Zoop\Api\Test\AbstractTest;
 use Zoop\Api\Test\Assets\TestModel;
 
-class Filter extends AbstractTest
+class FilterTest extends AbstractTest
 {
     public function testGetRequestSucceed()
     {
         $this->createTestData();
-        
+
         $accept = new Accept;
         $accept->addMediaType('application/json');
 
@@ -30,19 +29,19 @@ class Filter extends AbstractTest
         $this->dispatch('http://api.zoopcommerce.local/test');
 
         $response = $this->getResponse();
-        
+
         $this->assertResponseStatusCode(200);
-        
+
         $content = $response->getContent();
         $this->assertJson($content);
-        
+
         $data = json_decode($content, true);
-        
+
         $this->assertCount(5, $data);
-        
+
         return $data[0];
     }
-    
+
     /**
      * @depends testGetRequestSucceed
      */
@@ -50,7 +49,7 @@ class Filter extends AbstractTest
     {
         //attached a zone filter so that we only return 1 of the test documents
         $this->attachZoneEvent();
-        
+
         $accept = new Accept;
         $accept->addMediaType('application/json');
 
@@ -65,30 +64,30 @@ class Filter extends AbstractTest
         $this->dispatch(sprintf('http://api.zoopcommerce.local/name/%s/test', $testData['zones'][0]));
 
         $response = $this->getResponse();
-        
+
         $this->assertResponseStatusCode(200);
-        
+
         $content = $response->getContent();
         $this->assertJson($content);
-        
+
         $data = json_decode($content, true);
-        
+
         $this->assertCount(1, $data);
     }
-    
+
     protected function attachZoneEvent()
     {
         $app = $this->getApplication();
         $eventManager = $app->getEventManager();
         $eventManager->attach('route', [$this, 'applyZone']);
     }
-    
+
     public function applyZone(MvcEvent $event)
     {
         $data = $event->getRouteMatch()->getParam('name');
         $sm = $event->getApplication()->getServiceManager();
         $manifest = $sm->get('shard.commerce.manifest');
-        
+
         $extension = $manifest->getServiceManager()->get('extension.zone');
         $extension->setReadFilterInclude([$data]);
     }

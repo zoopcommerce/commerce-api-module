@@ -15,7 +15,7 @@ class Module
         $eventManager = $event->getApplication()->getEventManager();
         $eventManager->attachAggregate(new RouteListener);
     }
-    
+
     /**
      *
      * @return array

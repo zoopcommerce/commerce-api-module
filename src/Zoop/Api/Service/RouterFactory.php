@@ -13,7 +13,7 @@ use Zend\Mvc\Router\RoutePluginManager;
 class RouterFactory extends DefaultRouterFactory implements FactoryInterface
 {
     protected $routePluginManager;
-    
+
     public function createService(ServiceLocatorInterface $serviceLocator, $cName = null, $rName = null)
     {
         $router = parent::createService($serviceLocator, $cName, $rName);
@@ -39,7 +39,7 @@ class RouterFactory extends DefaultRouterFactory implements FactoryInterface
         $routeName = $apiConfig['name'];
         $routeConstraints = $apiConfig['constraints'];
         $routeConstraints['endpoint'] = $this->getEndpointRegex($apiConfig['endpoints']);
-        
+
         $routeConfig = [
             'route' => [
                 'type' => 'literal',
@@ -50,23 +50,23 @@ class RouterFactory extends DefaultRouterFactory implements FactoryInterface
             'route_plugins' => $this->getRoutePluginManager(),
             'child_routes' => [],
         ];
-        
+
         //apply filter routes
         $filteredRoutes = [];
         if (is_array($apiConfig['filters'])) {
             $filteredRoutes = $this->getFilterdRoutes($routeString, $routeConstraints, $apiConfig['filters']);
             $routeConfig['child_routes'] = $filteredRoutes;
         }
-        
+
         $routeConfig['child_routes']['default'] = $this->getRouteSegment($routeString, $routeConstraints);
-        
+
         $route = Part::factory($routeConfig);
-        
+
         $router->addRoute($routeName, $route, -100);
     }
-    
+
     /**
-     * 
+     *
      * @param string $route
      * @param array $routeConstraints
      * @param array $filters
@@ -75,16 +75,16 @@ class RouterFactory extends DefaultRouterFactory implements FactoryInterface
     protected function getFilterdRoutes($route, array $routeConstraints, array $filters)
     {
         $routes = [];
-        
+
         foreach ($filters as $name => $filter) {
             $compiledRoute = $filter['route'] . $route;
             $compiledConstraints = array_merge($routeConstraints, $filter['constraints']);
             $routes[$name] = $this->getRouteSegment($compiledRoute, $compiledConstraints);
         }
-        
+
         return $routes;
     }
-    
+
     /**
      * @param string $route
      * @param array $constraints
@@ -123,7 +123,7 @@ class RouterFactory extends DefaultRouterFactory implements FactoryInterface
 
         return str_replace('/', '\/', implode('|', $regexEndpoints));
     }
-    
+
     /**
      * @return RoutePluginManager
      */
@@ -131,7 +131,7 @@ class RouterFactory extends DefaultRouterFactory implements FactoryInterface
     {
         return $this->routePluginManager;
     }
-    
+
     /**
      * @param RoutePluginManager $routePluginManager
      */
