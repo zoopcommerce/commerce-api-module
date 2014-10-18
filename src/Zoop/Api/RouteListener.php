@@ -49,7 +49,7 @@ class RouteListener implements ListenerAggregateInterface
     {
         self::resolveController($event->getRouteMatch());
     }
-    
+
     public static function resolveController(RouteMatch $routeMatch)
     {
         if (strpos($routeMatch->getMatchedRouteName(), 'rest') === 0) {

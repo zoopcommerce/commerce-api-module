@@ -14,7 +14,7 @@ use Zoop\ShardModule\Controller\Result;
 class OptionsListener
 {
     use CorsHeadersTrait;
-    
+
     public function options(MvcEvent $event)
     {
         $result = new Result;

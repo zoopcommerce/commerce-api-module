@@ -1,6 +1,6 @@
 <?php
 
-namespace Zoop\Api\Test\Services;
+namespace Zoop\Api\Test\Controller;
 
 use Zend\Http\Header\Accept;
 use Zend\Http\Header\ContentType;
@@ -29,11 +29,11 @@ class EndpointTest extends AbstractTest
 
         $this->assertResponseStatusCode(201);
     }
-    
+
     public function testGetRequestSucceed()
     {
         $this->createTestData();
-        
+
         $accept = new Accept;
         $accept->addMediaType('application/json');
 
@@ -47,14 +47,14 @@ class EndpointTest extends AbstractTest
         $this->dispatch('http://api.zoopcommerce.local/test');
 
         $response = $this->getResponse();
-        
+
         $this->assertResponseStatusCode(200);
-        
+
         $content = $response->getContent();
         $this->assertJson($content);
-        
+
         $data = json_decode($content, true);
-        
+
         $this->assertCount(5, $data);
     }
 
@@ -82,13 +82,13 @@ class EndpointTest extends AbstractTest
         $content = $response->getContent();
         $this->assertEmpty($content);
     }
-    
+
     protected function createTestData()
     {
         for ($i = 0; $i < 5; $i++) {
             $test = new TestModel;
             $test->setName('Name' . rand(10, 1000));
-            
+
             self::getDocumentManager()->persist($test);
         }
         self::getDocumentManager()->flush();

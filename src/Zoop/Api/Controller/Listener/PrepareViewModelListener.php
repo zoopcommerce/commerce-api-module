@@ -14,15 +14,15 @@ use Zoop\ShardModule\Controller\Listener\PrepareViewModelListener as ShardPrepar
 class PrepareViewModelListener extends ShardPrepareViewModelListener
 {
     use CorsHeadersTrait;
-    
+
     public function __call($name, $args)
     {
         /* @var $event MvcEvent */
         $event = $args[0];
-        
+
         //apply cors headers
         $this->applyCors($event);
-        
+
         return $this->prepareViewModel($event, $name);
     }
 

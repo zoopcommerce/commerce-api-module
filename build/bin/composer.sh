@@ -10,8 +10,8 @@ else
     /opt/composer/composer.phar self-update
     if [ -f composer.lock ] && [ "$SERVER_TYPE" == "production" ]
     then
-        /opt/composer/composer.phar install --no-dev --optimize-autoloader
+        /opt/composer/composer.phar install --no-dev --optimize-autoloader --prefer-source
     else
-        /opt/composer/composer.phar update --optimize-autoloader -vvv
+        /opt/composer/composer.phar update --optimize-autoloader -vvv --prefer-source
     fi
 fi
