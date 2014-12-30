@@ -60,6 +60,7 @@ return [
         'invokables' => [
             'zoop.api.listener.options' => 'Zoop\Api\Controller\Listener\OptionsListener',
             'zoop.api.listener.cors' => 'Zoop\Api\Controller\Listener\CorsListener',
+            'zoop.api.listener.delete' => 'Zoop\Api\Controller\Listener\DeleteListener',
         ],
         'factories' => [
             'Router' => 'Zoop\Api\Service\RouterFactory',
