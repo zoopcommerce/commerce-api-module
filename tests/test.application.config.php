@@ -7,6 +7,7 @@ return [
         'DoctrineMongoODMModule',
         'Zoop\ShardModule',
         'Zoop\Api',
+        'Zoop\DataModel',
         'Zoop\Common'
     ],
     'module_listener_options' => [
