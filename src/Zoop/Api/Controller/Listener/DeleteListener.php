@@ -40,7 +40,7 @@ class DeleteListener extends ShardDeleteListener
 
         return $result;
     }
-    
+
     /**
      * @param MvcEvent $event
      * @return RestfulControllerOptions
@@ -49,7 +49,7 @@ class DeleteListener extends ShardDeleteListener
     {
         return $event->getTarget()->getOptions();
     }
-    
+
     /**
      * @param MvcEvent $event
      * @return SoftDeleter
@@ -60,10 +60,10 @@ class DeleteListener extends ShardDeleteListener
         $manifest = $options->getManifest();
         return $manifest->getServiceManager()->get('softDeleter');
     }
-    
+
     /**
      * Soft deletes the document
-     * 
+     *
      * @param MvcEvent $event
      * @param mixed $documentManager
      * @param mixed $document
@@ -73,14 +73,14 @@ class DeleteListener extends ShardDeleteListener
         $softDeleter = $this->getSoftDeleter($event);
         $metadata = $documentManager->getClassMetadata(get_class($document));
         $softDeleter->softDelete($document, $metadata);
-        
+
         if (!$softDeleter->isSoftDeleted($document, $metadata)) {
             throw new AccessControlException("You are not authorized to delete this document");
         }
     }
-    
+
     /**
-     * 
+     *
      * @param MvcEvent $event
      * @param mixed $metadata
      * @param mixed $documentManager
@@ -89,14 +89,14 @@ class DeleteListener extends ShardDeleteListener
     protected function getDocument(MvcEvent $event, $metadata, $documentManager)
     {
         $options = $this->getOptions($event);
-        
+
         $document = $documentManager
             ->createQueryBuilder()
             ->find($metadata->name)
             ->field($options->getProperty())->equals($event->getParam('id'))
             ->getQuery()
             ->getSingleResult();
-        
+
         return $document;
     }
 }
